@@ -247,39 +247,53 @@ void my_name()
     arc(295,25,0,360,2);
 
 }
+void menu();
 int main()
+{
+    while(1) {
+        menu();
+    }
+}
+void menu()
 {
     int gd=DETECT, gm;
     initgraph(&gd, &gm, "");
 
-    int select;
+    cout <<"Hello Howdy?" << endl;
+    cout << "Enter number followed by name to choose:  " << endl;
 
     cout <<"1. Laptop. "<< endl;
     cout <<"2. Birthday Cake. " << endl;
     cout <<"3. Rainbow. " << endl;
 
-    cout << "Enter number(1-3) to choose below option here:  ";
+    cout <<"\nHere..";
+    char select;
     cin >> select;
 
     switch(select)
     {
-    case 1:
+    case '1':
         my_name();
         laptop();
         break;
-    case 2:
+    case '2':
         my_name();
         birthday_cake();
         break;
-    case 3:
+    case '3':
         my_name();
         rainbow();
         break;
     default:
-        cout <<"Something wrong, Please try again!" << endl;
+        system("cls");
+        closegraph();
+        cout << "\033[31mPlease choose valid option!\033[0m" << endl;
+        main();
+        break;
 
     }
 
     getch();
     closegraph();
+    system("cls");
 }
